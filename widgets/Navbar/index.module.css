@@ -1,0 +1,11 @@
+.root {
+  border: 1px solid black;
+  padding: 2rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
