@@ -1,0 +1,32 @@
+.root {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 0;
+}
+
+.view_list {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 0;
+  overflow-x: scroll;
+  position: absolute;
+}
+
+.view_item {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 0;
+}
+
+.view_item_button { 
+  background: transparent;
+  color: var(--black);
+  border: 0;
+}
+
+.view_item_button:hover {
+  background-color: #eee;
+}

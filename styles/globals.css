@@ -2,8 +2,10 @@
   --color-primary: #6096B4;
   --color-secondary: #93BFCF;
   --color-terciary: #BDCDD6;
-  --black: #000;
+  --black: #0f0f0f;
   --white: #fff;
+
+  --border-radius-primary: .5rem;
 }
 
 * {
@@ -50,6 +52,14 @@ button
 
 span {
   font-size: inherit;
+}
+
+button {
+  background-color: var(--black);
+  color: var(--white);
+  border: .2rem solid var(--black);
+  border-radius: var(--border-radius-primary);
+  padding: .5rem 1rem;
 }
 
 .App {

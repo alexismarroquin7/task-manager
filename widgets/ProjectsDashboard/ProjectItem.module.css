@@ -1,0 +1,6 @@
+.root {
+  border: .2rem solid var(--black);
+  display: flex;
+  flex-flow: row wrap;
+  
+}
