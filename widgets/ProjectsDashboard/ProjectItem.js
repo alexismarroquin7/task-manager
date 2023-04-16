@@ -6,11 +6,7 @@ export const ProjectItem = ({ project }) => {
       key={project.id}
       className={styles.root}
     >
-      <label>
-        <input 
-          value={project.name}
-        />
-      </label>
+      <p>{project.name}</p>
 
     </div>
   )

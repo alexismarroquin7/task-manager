@@ -3,15 +3,14 @@
   flex-flow: row wrap;
   align-items: center;
   gap: 0;
+  width: 100%;
 }
 
 .view_list {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: center;
   gap: 0;
-  overflow-x: scroll;
-  position: absolute;
 }
 
 .view_item {

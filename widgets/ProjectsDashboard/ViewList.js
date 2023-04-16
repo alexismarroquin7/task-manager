@@ -22,7 +22,6 @@ export const ViewList = ({ views = [], current_view, create }) => {
       })}
     </div>
     <button onClick={create}>+</button>
-    {/* <span className={}></span> */}
   </div>
   )
 }
