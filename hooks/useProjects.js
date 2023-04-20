@@ -22,6 +22,11 @@ const action = {
       success: "projects/find/all/success",
       fail: "projects/find/all/fail"
     }
+  },
+  setCurrentView: {
+    start: "projects/setCurrentView/start",
+    success: "projects/setCurrentView/success",
+    fail: "projects/setCurrentView/fail"
   }
 };
 
@@ -36,7 +41,7 @@ const initialState = {
       hidden: {}
     }
   ],
-  current_view: 1
+  current_view_id: 1
 };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -77,7 +82,7 @@ const reducer = (state = initialState, {type, payload}) => {
           ...state.views,
           payload.view
         ],
-        current_view: payload.view.id
+        current_view_id: payload.view.id
       }
     case action.create.view.fail:
       return {
@@ -169,12 +174,17 @@ export const useProjects = () => {
     }
   }
 
-
+  const setCurrentView = () => {
+    dispatch({
+      type: action
+    })
+  }
   
   return {
     state,
     dispatch,
     createProject,
-    createView
+    createView,
+    setCurrentView
   }
 }
