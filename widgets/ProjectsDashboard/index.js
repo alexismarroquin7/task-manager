@@ -4,7 +4,7 @@ import { ProjectItem } from "./ProjectItem";
 import { ViewList } from "./ViewList";
 
 export const ProjectsDashboard = () => {
-  const { state, createProject, createView } = useProjects();
+  const { state, createProject, createView, setCurrentView } = useProjects();
   return <div 
     className={styles.root}
   >
@@ -16,7 +16,12 @@ export const ProjectsDashboard = () => {
       }}
     >Create</button>
   
-    <ViewList views={state.views} current_view={state.current_view} create={createView}/>
+    <ViewList 
+      views={state.views}
+      current_view_id={state.current_view_id}
+      create={createView}
+      setCurrentView={setCurrentView}
+    />
     
     {state.list.map(project => (
       <ProjectItem key={project.id} project={project}/>

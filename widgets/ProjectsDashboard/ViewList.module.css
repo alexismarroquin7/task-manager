@@ -15,17 +15,36 @@
 
 .view_item {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   align-items: center;
   gap: 0;
 }
 
 .view_item_button { 
   background: transparent;
-  color: var(--black);
   border: 0;
+  color: #808080;
 }
 
 .view_item_button:hover {
   background-color: #eee;
+}
+
+.current_view {
+  color: var(--black);
+}
+
+.current_view_span {
+  width: 50%;
+  height: .2rem;
+  background-color: black;
+  display: hidden;
+}
+
+.current_view_span.current_view_active {
+  display: inline;
+}
+
+.view_item_button.current_view_active {
+  color: var(--black);
 }

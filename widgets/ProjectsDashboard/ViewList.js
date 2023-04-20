@@ -1,6 +1,7 @@
 import styles from "./ViewList.module.css";
 
-export const ViewList = ({ views = [], current_view, create }) => {
+export const ViewList = ({ views = [], current_view_id, create, setCurrentView }) => {
+  
   return (
   <div
     className={styles.root}
@@ -9,14 +10,21 @@ export const ViewList = ({ views = [], current_view, create }) => {
       className={styles.view_list}
     >
       {views.map(view => {
+        console.log({current_view_id, 'view.id': view.id});
+        console.log("current_view_id === view.id", current_view_id === view.id);
         return (
           <div
             key={view.id}
-            className={`${styles.view_item} ${current_view == view.id ? styles.view_item__curent : ""}`}
+            className={`${styles.view_item}`}
           >
             <button
-              className={`${styles.view_item_button} ${current_view == view.id ? styles.view_item_button__curent : ""}`} 
+              className={`${styles.view_item_button} ${view.id === current_view_id ? styles.current_view_active : ""}`} 
+              // onClick={e => {
+                
+              // }}
             >{view.name}</button>
+
+            <span className={`${styles.current_view_span} ${view.id === current_view_id ? styles.current_view_active : ""}`}></span>
           </div>
         )
       })}
