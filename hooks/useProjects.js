@@ -41,7 +41,10 @@ const initialState = {
       hidden: {}
     }
   ],
-  current_view_id: 1
+  current_view_id: 1,
+  error: {
+    message: ""
+  }
 };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -92,6 +95,30 @@ const reducer = (state = initialState, {type, payload}) => {
           ...state.error,
           message: payload.error.message
         }
+      }
+
+    case action.setCurrentView.start:
+      return {
+        ...state,
+        loading: true,
+        error: initialState.error
+      }
+    case action.setCurrentView.success:
+      return {
+        ...state,
+        loading: false,
+        error: initialState.error,
+        current_view_id: payload.view.id
+      }
+    case action.setCurrentView.fail:
+      return {
+        ...state,
+        loading: false,
+        error: {
+          ...state.error,
+          message: payload.error.message
+        },
+        current_view_id: payload.id
       }
     default:
       throw Error(`unknown action.type: ${type}`);
@@ -174,10 +201,28 @@ export const useProjects = () => {
     }
   }
 
-  const setCurrentView = () => {
+  const setCurrentView = (view) => {
     dispatch({
-      type: action
+      type: action.setCurrentView.start
     })
+
+    try {
+      dispatch({
+        type: action.setCurrentView.success,
+        payload: {
+          view
+        }
+      })
+    } catch (err) {
+      dispatch({
+        type: action.setCurrentView.fail,
+        payload: {
+          error: {
+            message: "an error occured"
+          }
+        }
+      })
+    }
   }
   
   return {

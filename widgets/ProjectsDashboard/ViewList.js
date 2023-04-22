@@ -19,9 +19,9 @@ export const ViewList = ({ views = [], current_view_id, create, setCurrentView }
           >
             <button
               className={`${styles.view_item_button} ${view.id === current_view_id ? styles.current_view_active : ""}`} 
-              // onClick={e => {
-                
-              // }}
+              onClick={e => {
+                setCurrentView(view);
+              }}
             >{view.name}</button>
 
             <span className={`${styles.current_view_span} ${view.id === current_view_id ? styles.current_view_active : ""}`}></span>

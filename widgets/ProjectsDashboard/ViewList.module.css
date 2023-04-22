@@ -38,7 +38,7 @@
   width: 50%;
   height: .2rem;
   background-color: black;
-  display: hidden;
+  display: none;
 }
 
 .current_view_span.current_view_active {
@@ -46,5 +46,6 @@
 }
 
 .view_item_button.current_view_active {
+  font-weight: bold;
   color: var(--black);
 }
